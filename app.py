@@ -1,4 +1,6 @@
+import tkinter as tk
 import requests
+
 #make an API call
 url = "http://api.github.com/search/repositories"
 url += "?q=language:python+sort:stars+stars:>10000"
@@ -24,3 +26,13 @@ print("Examine the first repo")
 repo_dict = repo_dicts[0]
 print(f"\nKeys: {len(repo_dict)}")
 for key in sorted(repo_dict.keys()):print(key)
+
+#Tkinker GUI
+root = tk.Tk()
+text = tk.Text(root)
+
+text.insert(tk.INSERT, f'\nKeys: {len(repo_dict)}') 
+text.insert(tk.INSERT, keyOut) 
+text.pack()
+
+root.mainloop()
